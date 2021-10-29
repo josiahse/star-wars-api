@@ -2,7 +2,7 @@
 
 ## Project Links
 
-- [add your github repo link]()
+- [Github Repo](https://github.com/josiahse/star-wars-api)
 - [add your deployment link]()
 
 ## Project Description
