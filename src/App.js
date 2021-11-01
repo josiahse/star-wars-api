@@ -1,21 +1,27 @@
-import React, {useState, useEffect} from "react";
+import React, { useState, useEffect } from 'react';
+import CardPage from './Components/CardPage'
 
 function App() {
-  const [charInfo, setCharInfo] = useState({})
+	const [displayPage, setDisplayPage] = useState('people');
+	const [dataArray, setDataArray] = useState([]);
 
-  useEffect(() => {
-    fetch('https://swapi.dev/api/people/')
-    .then(response=>response.json())
-    .then(data => setCharInfo(data));
-  }, [])
+	const indexArray = [1, 2, 3, 4, 5, 6];
 
-  console.log(charInfo)
+	useEffect(() => {
+		Promise.all(
+			indexArray.map((i) => {
+				return fetch(`https://swapi.dev/api/${displayPage}/${i}/`);
+			})
+		).then((responses) => {
+			return Promise.all(
+				responses.map(response => response.json())
+			);
+		}).then(data => setDataArray(data));
+	}, [displayPage]);
 
-  return (
-		<div className='App'>
-			
-		</div>
-	);
+	return <div className='App'>
+    <CardPage setDisplayPage={setDisplayPage} dataArray={dataArray} page={displayPage}/>
+  </div>;
 }
 
 export default App;
