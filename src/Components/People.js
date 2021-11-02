@@ -3,8 +3,6 @@ import React, { useEffect, useState } from 'react';
 const People = (props) => {
 	const [dataArray, setDataArray] = useState(null);
 
-	// console.log(props.dataObj.species[0]);
-
 	useEffect(() => {
 		Promise.all([
 			fetch(`${props.dataObj.homeworld}`),
@@ -39,7 +37,7 @@ const People = (props) => {
 			</p>
 			<p>
 				<span>Species: </span>
-				{dataArray && dataArray[1].name ? dataArray[1].name : dataArray[1]}
+				{dataArray && (dataArray[1].name ? dataArray[1].name : dataArray[1])}
 			</p>
 			<p>
 				<span>Starship: </span>

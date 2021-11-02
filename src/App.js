@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import CardPage from './Components/CardPage'
 
 function App() {
-	const [displayPage, setDisplayPage] = useState('people');
+	const [displayPage, setDisplayPage] = useState('starships');
 	const [dataArray, setDataArray] = useState([]);
 
 	const indexArray = [1, 2, 3, 4, 5, 6];
@@ -18,6 +18,8 @@ function App() {
 			);
 		}).then(data => setDataArray(data));
 	}, [displayPage]);
+
+  console.log(dataArray)
 
 	return <div className='App'>
     <CardPage setDisplayPage={setDisplayPage} dataArray={dataArray} page={displayPage}/>
