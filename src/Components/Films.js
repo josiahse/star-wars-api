@@ -1,23 +1,29 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect } from 'react';
 
-const Films = (props) => {
-  	return (
-		<div>
-			<h1>{props.dataObj.title}</h1>
+const Films = ({ dataArray, changeDisplayPage }) => {
+  useEffect(() => {
+		changeDisplayPage('films');
+	}, [changeDisplayPage]);
+
+	const filmsJsx = dataArray.map((obj) => (
+		<div className='infoCard' key={obj.episode_id}>
+			<h1>{obj.title}</h1>
 			<p>
 				<span>Director: </span>
-				{props.dataObj.director}
+				{obj.director}
 			</p>
 			<p>
 				<span>Producer: </span>
-				{props.dataObj.producer}
+				{obj.producer}
 			</p>
 			<p>
 				<span>Opening Crawl: </span>
-				{props.dataObj.opening_crawl}
+				{obj.opening_crawl}
 			</p>
 		</div>
-	);
+	));
+
+	return <div className='cards'>{filmsJsx}</div>;
 };
 
 export default Films;

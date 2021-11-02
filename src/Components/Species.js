@@ -1,21 +1,27 @@
-const Species = (props) => {
-	return (
-		<div>
-			<h1>{props.dataObj.name}</h1>
+import React, { useEffect } from 'react';
+
+const Species = ({ dataArray, changeDisplayPage }) => {
+	useEffect(() => {
+		changeDisplayPage('species');
+	}, [changeDisplayPage]);
+	const speciesJsx = dataArray.map((obj) => (
+		<div className='infoCard' key={obj.name}>
+			<h1>{obj.name}</h1>
 			<p>
 				<span>Classification: </span>
-				{props.dataObj.classification}
+				{obj.classification}
 			</p>
 			<p>
 				<span>Designation: </span>
-				{props.dataObj.designation}
+				{obj.designation}
 			</p>
 			<p>
 				<span>Language: </span>
-				{props.dataObj.language}
+				{obj.language}
 			</p>
 		</div>
-	);
+	));
+	return <div className='cards'>{speciesJsx}</div>;
 };
 
 export default Species;

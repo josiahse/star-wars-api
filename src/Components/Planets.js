@@ -1,25 +1,31 @@
-const Planets = (props) => {
-	return (
-		<div>
-			<h1>{props.dataObj.name}</h1>
+import React, { useEffect } from 'react';
+
+const Planets = ({ dataArray, changeDisplayPage }) => {
+	useEffect(() => {
+		changeDisplayPage('planets');
+	}, [changeDisplayPage]);
+	const planetsJsx = dataArray.map((obj) => (
+		<div className='infoCard' key={obj.name}>
+			<h1>{obj.name}</h1>
 			<p>
 				<span>Climate: </span>
-				{props.dataObj.climate}
+				{obj.climate}
 			</p>
 			<p>
 				<span>Diameter: </span>
-				{props.dataObj.diameter}
+				{obj.diameter}
 			</p>
 			<p>
 				<span>Population: </span>
-				{props.dataObj.population}
+				{obj.population}
 			</p>
 			<p>
 				<span>Orbital Period: </span>
-				{props.dataObj.orbital_period}
+				{obj.orbital_period}
 			</p>
 		</div>
-	);
+	));
+	return <div className='cards'>{planetsJsx}</div>;
 };
 
 export default Planets;
