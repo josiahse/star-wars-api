@@ -5,24 +5,26 @@ const Planets = ({ dataArray, changeDisplayPage }) => {
 		changeDisplayPage('planets');
 	}, [changeDisplayPage]);
 	const planetsJsx = dataArray.map((obj) => (
-		<div className='infoCard' key={obj.name}>
-			<h1>{obj.name}</h1>
-			<p>
-				<span>Climate: </span>
-				{obj.climate}
-			</p>
-			<p>
-				<span>Diameter: </span>
-				{obj.diameter}
-			</p>
-			<p>
-				<span>Population: </span>
-				{obj.population}
-			</p>
-			<p>
-				<span>Orbital Period: </span>
-				{obj.orbital_period}
-			</p>
+		<div className='cardBG'>
+			<div className='infoCard' key={obj.name}>
+				<h1>{obj.name}</h1>
+				<p>
+					<span>Climate: </span>
+					{obj.climate}
+				</p>
+				<p>
+					<span>Diameter: </span>
+					{obj.diameter}
+				</p>
+				<p>
+					<span>Population: </span>
+					{obj.population}
+				</p>
+				<p>
+					<span>Orbital Period: </span>
+					{obj.orbital_period}
+				</p>
+			</div>
 		</div>
 	));
 	return <div className='cards'>{planetsJsx}</div>;

@@ -28,6 +28,12 @@ function App() {
 			<Nav />
 			<Route
 				exact
+				path='/'
+				render={() => (
+					<People dataArray={dataArray} changeDisplayPage={changeDisplayPage} />
+				)}></Route>
+			<Route
+				exact
 				path='/People'
 				render={() => (
 					<People dataArray={dataArray} changeDisplayPage={changeDisplayPage} />
