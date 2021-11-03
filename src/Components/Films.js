@@ -14,7 +14,6 @@ const Films = ({ dataArray, changeDisplayPage }) => {
 		return (
 			<div className='cardBG'>
 				<div className='infoCard' key={obj.episode_id}>
-					<div className='height-setter'></div>
 					<h1>{obj.title}</h1>
 					<p>
 						<span>Director: </span>

@@ -7,7 +7,6 @@ const People = ({ dataArray, changeDisplayPage }) => {
 	const peopleJsx = dataArray.map((obj) => (
 		<div className='cardBG'>
 			<div className='infoCard' key={obj.name}>
-				<div className='height-setter'></div>
 				<h1>{obj.name}</h1>
 				<p>
 					<span>Birth Year: </span>
