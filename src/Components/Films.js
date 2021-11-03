@@ -6,9 +6,10 @@ const Films = ({ dataArray, changeDisplayPage }) => {
 	}, [changeDisplayPage]);
 
 	const filmsJsx = dataArray.map((obj) => {
-		let releaseDate = new Date(obj.release_date);
+		const releaseDate = new Date(obj.release_date);
 
-    releaseDate = releaseDate.toDateString().slice(4)
+    const releaseDateArray = releaseDate.toDateString().slice(4).split(' ')
+    const dateString = [releaseDateArray[1], releaseDateArray[0], releaseDateArray[2]].join(' ')
 
 		return (
 			<div className='cardBG'>
@@ -25,7 +26,7 @@ const Films = ({ dataArray, changeDisplayPage }) => {
 					</p>
 					<p>
 						<span>Release Date: </span>
-						{releaseDate}
+						{dateString}
 					</p>
 				</div>
 			</div>
