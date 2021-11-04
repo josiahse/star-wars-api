@@ -1,6 +1,6 @@
 {
   "files": {
-    "main.css": "/star-wars-api/static/css/main.d739d742.chunk.css",
+    "main.css": "/star-wars-api/static/css/main.deaaef24.chunk.css",
     "main.js": "/star-wars-api/static/js/main.4b0dcc2c.chunk.js",
     "main.js.map": "/star-wars-api/static/js/main.4b0dcc2c.chunk.js.map",
     "runtime-main.js": "/star-wars-api/static/js/runtime-main.81ff2087.js",
@@ -8,14 +8,14 @@
     "static/js/2.42a27019.chunk.js": "/star-wars-api/static/js/2.42a27019.chunk.js",
     "static/js/2.42a27019.chunk.js.map": "/star-wars-api/static/js/2.42a27019.chunk.js.map",
     "index.html": "/star-wars-api/index.html",
-    "static/css/main.d739d742.chunk.css.map": "/star-wars-api/static/css/main.d739d742.chunk.css.map",
+    "static/css/main.deaaef24.chunk.css.map": "/star-wars-api/static/css/main.deaaef24.chunk.css.map",
     "static/js/2.42a27019.chunk.js.LICENSE.txt": "/star-wars-api/static/js/2.42a27019.chunk.js.LICENSE.txt",
     "static/media/styles.css": "/star-wars-api/static/media/pexels-francesco-ungaro-998641.81c108db.jpg"
   },
   "entrypoints": [
     "static/js/runtime-main.81ff2087.js",
     "static/js/2.42a27019.chunk.js",
-    "static/css/main.d739d742.chunk.css",
+    "static/css/main.deaaef24.chunk.css",
     "static/js/main.4b0dcc2c.chunk.js"
   ]
 }
