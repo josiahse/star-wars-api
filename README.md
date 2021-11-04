@@ -3,11 +3,11 @@
 ## Project Links
 
 - [Github Repo](https://github.com/josiahse/star-wars-api)
-- [add your deployment link]()
+- [add your deployment link](https://josiahse.github.io/star-wars-api/#/)
 
 ## Project Description
 
-This site polls the Star Wars API (link below) to render the most popular characters on the page. An additional Locations page shows some of the important planets in the saga, and there's a search bar to pull information about whatever character or location you'd like!
+This site polls the Star Wars API (link below) to render the some Star Wars characters on the page. Additional pages show info for various planets, vehicles, films, etc. You can search on each page for a character or vehicle that's not shown.
 
 ## API
 
@@ -57,14 +57,14 @@ Upload images of wireframe to cloudinary and add the link here with a descriptio
 
 #### MVP
 
-- Fetch Star Wars Characters for initial page load (first 6 or 12 characters)
+- Fetch Star Wars Characters for initial page load (first 6 characters)
 - Fetch Stars Wars info for other pages on load
 - Implement routes between the various pages page
 - Search bar on each page
 
 #### PostMVP
 
-- Implement a generic search field for each 
+- Implement a generic search field for each -- not yet done, see code snippets below for how I believe this would need to be implemented given the API I am working with.
 
 ## Components
 
@@ -84,25 +84,61 @@ Based on the initial logic defined in the previous sections try and breakdown th
 | Component | Priority | Estimated Time | Actual Time |
 | --- | :---: | :---: | :---: |
 | Initial Design and API test | H | 3hrs| 2.5 hrs |
-| React structure | H | 2 hrs | -- |
-| Passing Props | H | 4 hrs | -- |
-| Routing | H | 2 hrs | -- |
-| Working with API | H | 3hrs | -- |
-| Bootstrap layout | H | 4hrs | -- |
-| Search implementation | M | 2 hrs | -- |
-| Generic Search pMVP work | L | 4 hrs |  
-| Total | H | 24 hrs | 2.5 hrs |
+| React structure | H | 2 hrs | 4 hrs |
+| Passing Props | H | 4 hrs | 4 hrs |
+| Routing | H | 2 hrs | 2 hrs |
+| Working with API | H | 3 hrs | 14 hrs |
+| Bootstrap layout | H | 4hrs | n/a |
+| Search implementation | M | 2 hrs | 2 hrs |
+| Generic Search pMVP work | L | 4 hrs | n/a |  
+| Total | H | 24 hrs | 28.5 hrs |
 
 ## Additional Libraries
 
-I'd like to use React Bootstrap for this project.
+I was planning on using React Bootstrap for this project but working with the API took significantly longer than expected so I only applied some basic CSS to the project to get it at least semi-presentable.
 
 ## Code Snippet
 
-Use this section to include a brief code snippet of functionality that you are proud of an a brief description. Code snippet should not be greater than 10 lines of code.
+I don't have time to update the search functionality to be a universal search for every page given my React Architecture (I believe I'd have to restructure my components to better fit this search). But I believe this is how the API call would need to be done given the API I am working with, which has a separate search field for each of the 6 categories.
 
 ```
-function reverse(string) {
-	// here is the code to reverse a string of text
+Promise.all([
+	fetch(`https://swapi.dev/api/people/?search=${inputRef.current.value}`),
+	fetch(`https://swapi.dev/api/films/?search=${inputRef.current.value}`),
+	fetch(`https://swapi.dev/api/species/?search=${inputRef.current.value}`),
+	fetch(`https://swapi.dev/api/vehicles/?search=${inputRef.current.value}`),
+	fetch(`https://swapi.dev/api/starships/?search=${inputRef.current.value}`),
+	fetch(`https://swapi.dev/api/planets/?search=${inputRef.current.value}`),
+])
+.then(responses => Promise.all(responses.map(response => response.json())))
+.then(data => changeDataArray(data.filter(obj => obj.results[0])));
+```
+
+This CSS to both angle the corners of the cards and get a border around the full perimeter of the cards took a bit of doing but I'm happy with how it turned out.
+
+```
+.cardBG {
+	filter: drop-shadow(1px 0px 0px #18e9f7) drop-shadow(-1px 0px 0px #18e9f7)
+		drop-shadow(0px 1px 0px #18e9f7) drop-shadow(0px -1px 0px #18e9f7)
+		drop-shadow(1px 1px 0px #18e9f7) drop-shadow(-1px -1px 0px #18e9f7)
+		drop-shadow(-1px 1px 0px #18e9f7) drop-shadow(1px -1px 0px #18e9f7);
+}
+
+.infoCard {
+	background-color: black;
+	padding: 5%;
+  text-align: center;
+	max-width: 350px;
+	clip-path: polygon(
+		0 10%,
+		10% 0,
+		90% 0,
+		100% 10%,
+		100% 90%,
+		90% 100%,
+		10% 100%,
+		0% 90%,
+		0% 10%
+	);
 }
 ```
