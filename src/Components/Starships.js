@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react';
+import SearchBar from './SearchBar';
 
-const Starships = ({dataArray, changeDisplayPage}) => {
+const Starships = ({dataArray, changeDisplayPage, changeDataArray}) => {
     useEffect(() => {
 			changeDisplayPage('starships');
 		}, [changeDisplayPage]);
@@ -27,7 +28,12 @@ const Starships = ({dataArray, changeDisplayPage}) => {
 			</div>
 		</div>
 	));
-	return <div className='cards'>{starhipsJsx}</div>;
+	return (
+		<main>
+			<SearchBar page='starships' changeDataArray={changeDataArray} />
+			<div className='cards'>{starhipsJsx}</div>
+		</main>
+	);
 };
 
 export default Starships;

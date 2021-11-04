@@ -23,6 +23,10 @@ function App() {
 		setDisplayPage(page);
 	};
 
+	const changeDataArray = (array) => {
+		setDataArray(array);
+	};
+
 	return (
 		<div className='App'>
 			<Nav />
@@ -30,13 +34,21 @@ function App() {
 				exact
 				path='/'
 				render={() => (
-					<People dataArray={dataArray} changeDisplayPage={changeDisplayPage} />
+					<People
+						dataArray={dataArray}
+						changeDisplayPage={changeDisplayPage}
+						changeDataArray={changeDataArray}
+					/>
 				)}></Route>
 			<Route
 				exact
 				path='/People'
 				render={() => (
-					<People dataArray={dataArray} changeDisplayPage={changeDisplayPage} />
+					<People
+						dataArray={dataArray}
+						changeDisplayPage={changeDisplayPage}
+						changeDataArray={changeDataArray}
+					/>
 				)}></Route>
 			<Route
 				exact
@@ -51,6 +63,7 @@ function App() {
 					<Planets
 						dataArray={dataArray}
 						changeDisplayPage={changeDisplayPage}
+						changeDataArray={changeDataArray}
 					/>
 				)}></Route>
 			<Route
@@ -60,6 +73,7 @@ function App() {
 					<Species
 						dataArray={dataArray}
 						changeDisplayPage={changeDisplayPage}
+						changeDataArray={changeDataArray}
 					/>
 				)}></Route>
 			<Route
@@ -69,6 +83,7 @@ function App() {
 					<Starships
 						dataArray={dataArray}
 						changeDisplayPage={changeDisplayPage}
+						changeDataArray={changeDataArray}
 					/>
 				)}></Route>
 			<Route
@@ -78,6 +93,7 @@ function App() {
 					<Vehicles
 						dataArray={dataArray}
 						changeDisplayPage={changeDisplayPage}
+						changeDataArray={changeDataArray}
 					/>
 				)}></Route>
 		</div>
